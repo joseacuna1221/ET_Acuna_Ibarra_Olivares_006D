@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button 
+          defaultHref="/tabs/tab1"
+          text=""
+          color="dark"></ion-back-button>
+      </ion-buttons>
+    <ion-title>
+      Busqueda
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div style="background-color: #0b091b; shape: round; text-align: center; margin: 10px; margin-bottom: 20px;">
+  <ion-input placeholder="Buscar"></ion-input>
+  </div>
+
+  <ion-card class="custom-card">
+    <ion-img src="https://via.placeholder.com/300" class="card-image"></ion-img>
+    
+    <div class="overlay">
+      <div class="overlay-content">
+        <div class="indicator">
+          <div class="indicator-item">
+            <ion-icon name="people" class="icon"></ion-icon>
+            <span>0/16</span>
+          </div>
+          <div class="indicator-item">
+            <ion-icon name="people" class="icon"></ion-icon>
+            <span>0/32</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-card>
+</ion-content>
