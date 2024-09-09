@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button 
+          defaultHref="/tabs/tab2"
+          text=""
+          color="dark"></ion-back-button>
+      </ion-buttons>
+    <ion-title>Inscrito</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card style="color: black; height: 500px;">
+      <img src="/assets/img/frame.png" alt="qr">
+      <h2 style="color: white; font-size: 2em; text-align: center;">Gracias por inscribirte!!</h2>
+      <p style="color: white; text-align: center;"> Ante cualquier duda no dudes en contactanos</p>
+  </ion-card>
+  <div>
+    <ion-button expand="full" class="card-button" style="margin: 10px;">
+      <div class="button-content">
+        <p>descargar</p>
+      </div>
+    </ion-button>
+    <ion-button expand="full" class="card-button" [routerLink]="['/tabs/tab1']" style="margin: 10px;">
+      <div class="button-content">
+        <p>volver al inicio</p>
+      </div>
+    </ion-button>
+  </div>
+</ion-content>
