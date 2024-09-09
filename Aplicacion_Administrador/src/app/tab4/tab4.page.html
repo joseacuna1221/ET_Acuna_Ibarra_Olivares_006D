@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card class="carta-perfil">
+    <ion-card-content>
+      <div class="centrar-foto">
+        <ion-img src="https://via.placeholder.com/150" class="profile-image"></ion-img>
+        <h2 style="font-size: 1.5em; margin: 0;">John destino</h2>
+      </div>
+      <div>
+        <div style="margin-bottom: 10px;">
+          <ion-icon name="person" style="margin-right: 10px;"></ion-icon>
+          <span>nombre: John destiny</span>
+        </div>
+        <div style="margin-bottom: 10px;">
+          <ion-icon name="calendar" style="margin-right: 10px;"></ion-icon>
+          <span>fecha de nacimiento: 1 de enero, 1990</span>
+        </div>
+        <div style="margin-bottom: 10px;">
+          <ion-icon name="ellipsis-vertical" style="margin-right: 10px;"></ion-icon>
+          <span>genero: helicoptero</span>
+        </div>
+      </div>
+    </ion-card-content>
+    <ion-button expand="full" class="card-button" [routerLink]="['/']">
+      <div class="button-content">
+        <p>cerrar sesion</p>
+      </div>
+    </ion-button>
+  </ion-card>
+  
+</ion-content>

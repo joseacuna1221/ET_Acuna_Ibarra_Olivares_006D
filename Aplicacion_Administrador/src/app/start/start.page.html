@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Inicio sesion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="login-container">
+  <div class="login-card-wrapper">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Login</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="stacked">Email: </ion-label>
+          <ion-input type="email" placeholder="Ingrese correo" name="correo" [(ngModel)]="correo"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Password: </ion-label>
+          <ion-input type="password" placeholder="Ingrese contraseña" name="pass" [(ngModel)]="pass"></ion-input>
+        </ion-item>
+      </ion-card-content>
+
+      <div style="text-align: center; margin-bottom: 20px;">
+        <ion-button (click)="login()" fill="solid" shape="round" color="medium" class="boton">
+          Login
+        </ion-button>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-label style="margin-left: 10px;">weko</ion-label>
+    <ion-buttons slot="end">
+      <ion-button fill="clear">
+        <ion-icon name="logo-instagram" color="primary"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear">
+        <ion-icon name="logo-discord" color="primary"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear">
+        <ion-icon name="logo-github" color="primary"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear">
+        <ion-icon name="logo-angular" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

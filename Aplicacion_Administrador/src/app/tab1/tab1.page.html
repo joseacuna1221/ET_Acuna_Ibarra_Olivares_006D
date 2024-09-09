@@ -1,0 +1,76 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Inicio
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="no-padding-content">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 1</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content style="height: 500px; margin-top: 600px;">
+    
+    <ion-slides pager="true" class="carousel" [options]="slideOpts">
+      <ion-slide>
+        <img src="assets/img/img1.jpg" alt="Slide 1">
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/img/img2.jpg" alt="Slide 2">
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/img/img3.jpg" alt="Slide 3">
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/img/img4.jpg" alt="Slide 4">
+      </ion-slide>
+    </ion-slides>
+  </ion-content>
+  
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button expand="full" class="card-button" [routerLink]="['/tabs/tabc']">
+          <div class="button-content">
+            <ion-icon slot="start" name="add" class="tamanno-icon"></ion-icon>
+            <p>Crear</p>
+          </div>
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-button expand="full" class="card-button" [routerLink]="['/tabs/tab2']">
+          <div class="button-content">
+            <ion-icon slot="start" name="copy" class="tamanno-icon"></ion-icon>
+            <p>Mis eventos</p>
+          </div>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6">
+        <ion-button expand="full" class="card-button" [routerLink]="['/tabs/tab3']">
+          <div class="button-content">
+            <ion-icon slot="start" name="apps" class="tamanno-icon"></ion-icon>
+            <p>reg. eventos</p>
+          </div>
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-button expand="full" class="card-button" [routerLink]="['/tabs/tab4']">
+          <div class="button-content">
+            <ion-icon slot="start" name="person" class="tamanno-icon"></ion-icon>
+            <p>perfil</p>
+          </div>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
