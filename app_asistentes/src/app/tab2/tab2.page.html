@@ -5,7 +5,7 @@
           defaultHref="/tabs/tab1"
           text=""
           color="dark"></ion-back-button>
-      </ion-buttons>
+    </ion-buttons>
     <ion-title>Mis eventos</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -17,100 +17,19 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-button class="custom-card" [routerLink]="['/inscrito']">
-    <ion-img src="https://via.placeholder.com/300" class="card-image"></ion-img>
+  <ion-button *ngFor="let evento of eventos" class="custom-card" [routerLink]="['/detalle-evento', evento.id]">
+    <ion-img [src]="evento.imagen || 'https://via.placeholder.com/300'" class="card-image"></ion-img>
     <div class="overlay">
       <div class="contador">
         <div class="personas">
           <ion-icon name="person"></ion-icon>
-          <span>0/16</span>
+          <span>{{  evento.numeroParticipantes }}/{{ evento.maxParticipantes }}</span>
         </div>
         <div class="personas">
           <ion-icon name="people"></ion-icon>
-          <span>0/32</span>
+          <span>{{ evento.numeroEspectadores }}/{{ evento.maxEspectadores }}</span>
         </div>
       </div>
     </div>
-  </ion-button>
-
-  <ion-button class="custom-card" [routerLink]="['/inscrito']">
-    <ion-img src="https://via.placeholder.com/300" class="card-image"></ion-img>
-    <div class="overlay">
-      <div class="contador">
-        <div class="personas">
-          <ion-icon name="person"></ion-icon>
-          <span>0/16</span>
-        </div>
-        <div class="personas">
-          <ion-icon name="people"></ion-icon>
-          <span>0/32</span>
-        </div>
-      </div>
-    </div>
-  </ion-button>
-
-  <ion-button class="custom-card" [routerLink]="['/inscrito']">
-    <ion-img src="https://via.placeholder.com/300" class="card-image"></ion-img>
-    <div class="overlay">
-      <div class="contador">
-        <div class="personas">
-          <ion-icon name="person"></ion-icon>
-          <span>0/16</span>
-        </div>
-        <div class="personas">
-          <ion-icon name="people"></ion-icon>
-          <span>0/32</span>
-        </div>
-      </div>
-    </div>
-  </ion-button>
-
-  <ion-button class="custom-card" [routerLink]="['/inscrito']">
-    <ion-img src="https://via.placeholder.com/300" class="card-image"></ion-img>
-    <div class="overlay">
-      <div class="contador">
-        <div class="personas">
-          <ion-icon name="person"></ion-icon>
-          <span>0/16</span>
-        </div>
-        <div class="personas">
-          <ion-icon name="people"></ion-icon>
-          <span>0/32</span>
-        </div>
-      </div>
-    </div>
-  </ion-button>
-
-  <ion-button class="custom-card" [routerLink]="['/inscrito']">
-    <ion-img src="https://via.placeholder.com/300" class="card-image"></ion-img>
-    <div class="overlay">
-      <div class="contador">
-        <div class="personas">
-          <ion-icon name="person"></ion-icon>
-          <span>0/16</span>
-        </div>
-        <div class="personas">
-          <ion-icon name="people"></ion-icon>
-          <span>0/32</span>
-        </div>
-      </div>
-    </div>
-  </ion-button>
-
-  <ion-button class="custom-card" [routerLink]="['/inscrito']">
-    <ion-img src="https://via.placeholder.com/300" class="card-image"></ion-img>
-    <div class="overlay">
-      <div class="contador">
-        <div class="personas">
-          <ion-icon name="person"></ion-icon>
-          <span>0/16</span>
-        </div>
-        <div class="personas">
-          <ion-icon name="people"></ion-icon>
-          <span>0/32</span>
-        </div>
-      </div>
-    </div>
-  </ion-button>
+  </ion-button>  
 </ion-content>
-

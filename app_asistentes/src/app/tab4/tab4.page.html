@@ -1,11 +1,16 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="start" name="menu-outline" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-buttons slot="start">
       <ion-back-button 
           defaultHref="/tabs/tab1"
           text=""
           color="dark"></ion-back-button>
-      </ion-buttons>
+    </ion-buttons>
     <ion-title>Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,28 +19,31 @@
   <ion-card class="carta-perfil">
     <ion-card-content>
       <div class="centrar-foto">
-        <ion-img src="https://via.placeholder.com/150" class="profile-image"></ion-img>
-        <h2 style="font-size: 1.5em; margin: 0;">John destino</h2>
+        <ion-img [src]="user?.profilePicture || 'https://via.placeholder.com/150'" class="profile-image"></ion-img>
+        <h2 style="font-size: 1.5em; margin: 0;">{{ user?.username }}</h2>
       </div>
       <div>
         <div style="margin-bottom: 10px;">
           <ion-icon name="person" style="margin-right: 10px;"></ion-icon>
-          <span>Nombre: John destiny</span>
+          <span>Nombre: {{ user?.name}}</span>
+        </div>
+        <div style="margin-bottom: 10px;">
+          <ion-icon name="mail" style="margin-right: 10px;"></ion-icon>
+          <span>Correo: {{ user?.email}}</span>
+        </div>
+        <div style="margin-bottom: 10px;">
+          <ion-icon name="mail" style="margin-right: 10px;"></ion-icon>
+          <span>Edad: {{ user?.age}}</span>
         </div>
         <div style="margin-bottom: 10px;">
           <ion-icon name="calendar" style="margin-right: 10px;"></ion-icon>
-          <span>Fecha de nacimiento: 1 de enero, 1990</span>
+          <span>Fecha de nacimiento: {{ user?.dob }}</span>
         </div>
         <div style="margin-bottom: 10px;">
           <ion-icon name="ellipsis-vertical" style="margin-right: 10px;"></ion-icon>
-          <span>Genero: helicoptero</span>
+          <span>Género: {{ user?.gender }}</span>
         </div>
       </div>
     </ion-card-content>
-    <ion-button expand="full" class="card-button" [routerLink]="['/']">
-      <div class="button-content">
-        <p>cerrar sesion</p>
-      </div>
-    </ion-button>
   </ion-card>
 </ion-content>

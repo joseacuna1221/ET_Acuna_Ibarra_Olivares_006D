@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { TabcPageRoutingModule } from './tabc-routing.module';
+import { MiseventosPageRoutingModule } from './miseventos-routing.module';
 
-import { TabcPage } from './tabc.page';
+import { MiseventosPage } from './miseventos.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TabcPageRoutingModule
+    MiseventosPageRoutingModule
   ],
-  declarations: [TabcPage]
+  declarations: [MiseventosPage]
 })
-export class TabcPageModule {}
+export class MiseventosPageModule {}

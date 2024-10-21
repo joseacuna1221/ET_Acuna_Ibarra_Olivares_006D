@@ -1,52 +1,74 @@
-<div>
-  <ion-content style="height: 500px; margin-top: 600px;">
-    <div style="max-height: 500px;max-width: 500px;">
-      <img src="assets/img/img1.jpg" alt="Slide 1">
-    </div>
-  </ion-content>
-  <ion-content [fullscreen]="true" class="login-container">
-    <div class="login-card-wrapper">
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Login</ion-card-title>
-        </ion-card-header>
+<ion-header [translucent]="true" style="margin-bottom: 20px;">
+  <ion-toolbar color="tertiary">
+    <ion-title class="text-center">Inicio de Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-        <ion-card-content>
-          <ion-item>
-            <ion-label position="stacked">Email: </ion-label>
-            <ion-input type="email" placeholder="Ingrese correo" name="correo" [(ngModel)]="correo"></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label position="stacked">Password: </ion-label>
-            <ion-input type="password" placeholder="Ingrese contraseña" name="pass" [(ngModel)]="pass"></ion-input>
-          </ion-item>
-        </ion-card-content>
-
-        <div style="text-align: center; margin-bottom: 20px;">
-          <ion-button (click)="login()" fill="solid" shape="round" color="medium" class="boton">
-            Login
-          </ion-button>
+<ion-content [fullscreen]="true" class="login-background">
+  <div class="login-container">
+    <form [formGroup]="loginForm">
+      <ion-item class="input-item">
+        <ion-input type="text" placeholder="Ingrese su nombre de usuario" label="Usuario:" labelPlacement="floating"
+            formControlName="username">
+        </ion-input>
+      </ion-item>
+      
+      <div class="alert-message" *ngIf="loginForm.get('username')?.invalid && 
+          (loginForm.get('username')?.dirty || loginForm.get('username')?.touched)">
+        <div *ngIf="loginForm.get('username')?.hasError('required')">
+          *El nombre de usuario es obligatorio
         </div>
-      </ion-card>
-    </div>
-  </ion-content>
-</div>
+        <div *ngIf="loginForm.get('username')?.hasError('minlength')">
+          *El nombre de usuario debe tener al menos 6 caracteres
+        </div>
+      </div>
+
+      <ion-item class="input-item">
+        <ion-input type="password" placeholder="Ingrese su contraseña" label="Password:" labelPlacement="floating"
+            formControlName="password">
+        </ion-input>
+      </ion-item>
+
+      <div class="alert-message" *ngIf="loginForm.get('password')?.invalid && 
+          (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+        <div *ngIf="loginForm.get('password')?.hasError('required')">
+          *La contraseña es obligatoria
+        </div>
+        <div *ngIf="loginForm.get('password')?.hasError('minlength')">
+          *La contraseña debe tener al menos 8 caracteres
+        </div>
+      </div>
+
+      <div class="button-container">
+        <ion-button expand="block" (click)="login()" [disabled]="!loginForm.valid" shape="round" color="primary">
+          Iniciar Sesión
+        </ion-button>
+      </div>
+      
+      <div class="button-container">
+        <ion-button expand="block" (click)="Registrar()" fill="clear" shape="round">
+          Registrarse
+        </ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>
+
 <ion-footer>
-  <ion-toolbar>
-    <ion-label style="margin-left: 10px;">ProKiosk</ion-label>
+  <ion-toolbar color="tertiary">
+    <ion-title class="footer-title">MyTabs 2024</ion-title>
     <ion-buttons slot="end">
       <ion-button fill="clear">
-        <ion-icon name="logo-instagram" color="primary"></ion-icon>
+        <ion-icon name="logo-instagram"></ion-icon>
       </ion-button>
       <ion-button fill="clear">
-        <ion-icon name="logo-discord" color="primary"></ion-icon>
+        <ion-icon name="logo-facebook"></ion-icon>
       </ion-button>
       <ion-button fill="clear">
-        <ion-icon name="logo-github" color="primary"></ion-icon>
+        <ion-icon name="logo-x"></ion-icon>
       </ion-button>
       <ion-button fill="clear">
-        <ion-icon name="logo-angular" color="primary"></ion-icon>
+        <ion-icon name="logo-discord"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>

@@ -1,0 +1,64 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button 
+        defaultHref="/tabs/tab4"
+        text=""
+        color="dark"></ion-back-button>
+  </ion-buttons>
+  <ion-title>Editar perfil</ion-title>
+</ion-toolbar>
+
+<ion-content>
+  <form [formGroup]="editProfileForm" (ngSubmit)="onUpdate()">
+    <ion-item>
+      <ion-label position="floating">Username</ion-label>
+      <ion-input formControlName="username"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input formControlName="password" type="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Nombre Completo</ion-label>
+      <ion-input formControlName="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Edad</ion-label>
+      <ion-input formControlName="age" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">RUT</ion-label>
+      <ion-input formControlName="rut"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Fecha de Nacimiento</ion-label>
+      <ion-input formControlName="dob" type="date"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Género</ion-label>
+      <ion-select formControlName="gender">
+        <ion-select-option value="male">Masculino</ion-select-option>
+        <ion-select-option value="female">Femenino</ion-select-option>
+        <ion-select-option value="other">Otro</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">URL Foto de Perfil</ion-label>
+      <ion-input formControlName="profilePicture"></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" [disabled]="!editProfileForm.valid">Actualizar</ion-button>
+  </form>
+</ion-content>

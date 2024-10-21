@@ -1,13 +1,38 @@
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+.login-background {
+  background-color: #f0f0f0;
+  padding: 20px;
+}
 
-  }
-  
-  .login-card-wrapper {
-    width: 100%;
-    max-width: 400px;
-  }
-  
+.login-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  background-color: rgb(53, 50, 50);
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.input-item {
+  margin-bottom: 15px;
+}
+
+.alert-message {
+  color: red;
+  font-size: 0.9em;
+  padding-left: 15px;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.footer-title {
+  font-size: 1.2em;
+  text-align: center;
+  color: white;
+}
