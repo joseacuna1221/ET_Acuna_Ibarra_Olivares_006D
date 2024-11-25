@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-back-button 
+    defaultHref="tabs/tab3"
+    text=""
+    color="dark"
+    slot="start">
+  </ion-back-button>
+    <ion-title >
+      Codigo QR
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <div>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Lugar: {{evento.lugar}}</ion-card-subtitle>
+        <ion-card-title>{{evento.nombre}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content *ngIf="qrdata" style="text-align: center;">
+          <qrcode [qrdata]="qrdata" [width]="256" [errorCorrectionLevel]="'M'" ></qrcode>
+          <p>Nombre de usuario: {{usuario.username}}</p>
+          <p>Rut de usuario: {{usuario.rut}}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+    
+</ion-content>

@@ -1,27 +1,48 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/tab2" text="" color="dark"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Detalles del Evento</ion-title>
+    <ion-back-button 
+    defaultHref="tabs/tab2"
+    text=""
+    color="dark"
+    slot="start">
+  </ion-back-button>
+    <ion-title>Detalle evento</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card *ngIf="evento">
+  <ion-card color="dark">
     <ion-card-header>
-      <ion-card-title>{{ evento.nombre }}</ion-card-title>
-      <ion-card-subtitle>{{ evento.fecha }} - {{ evento.ubicacion }}</ion-card-subtitle>
+      <ion-card-subtitle>Fecha del evento: {{evento.fecha}}</ion-card-subtitle>
+      <ion-card-title>{{evento.nombre}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <p>{{ evento.descripcion }}</p>
-      <ion-img [src]="evento.imagen || 'https://via.placeholder.com/300'"></ion-img>
-      <div style="margin-top: 15px;">
-        <p>Participantes: {{ evento.maxParticipantes }}</p>
-        <p>Espectadores: {{ evento.maxEspectadores }}</p>
-      </div>
-      <ion-button expand="full" color="primary" (click)="unirseComoParticipante()">Unirse como Participante</ion-button>
-      <ion-button expand="full" color="secondary" (click)="unirseComoEspectador()">Unirse como Espectador</ion-button>
+      <img src="assets/evento1.jpg" alt="">
+      <p><b>Lugar del evento: </b>{{evento.lugar}}</p>
+      <p><b>Cupos: </b>{{evento.cupos}}</p>
+      <p>{{evento.descripcion}}</p>
     </ion-card-content>
+    <ion-button (click)="verComentarios(evento)" class="pr pl pb"  color="secondary" expand="block" fill="solid" shape="round" size="default">
+      Ver Reseñas
+    </ion-button>
   </ion-card>
+   
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Comentar Evento</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-input [readonly]="true" nombre="username" labelPlacement="floating" type="text"  label="Username:" [(ngModel)]="username" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-textarea rows="5" nombre="Comentario" placeholder="Deje sus comentarios aqui..." [(ngModel)]="comentario" ></ion-textarea>
+      </ion-item>
+    </ion-card-content>
+    <ion-button (click)="enviarComentarios()" class="pl pr pb" color="success" expand="block" fill="solid" shape="round">
+      Enviar
+    </ion-button>
+   </ion-card>
+   
+
 </ion-content>

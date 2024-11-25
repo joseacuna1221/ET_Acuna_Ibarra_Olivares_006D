@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-back-button 
+    defaultHref="tabs/tab2"
+    text=""
+    color="dark"
+    slot="start">
+  </ion-back-button>
+    <ion-title>Formulario de inscripcion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card color="dark">
+    <ion-card-header>
+      <ion-card-subtitle>Fecha del evento: {{infoevent.fecha}}</ion-card-subtitle>
+      <ion-card-title>{{infoevent.nombre}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <img src="assets/evento1.jpg" alt="">
+      <p>{{infoevent.descripcion}}</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Sus datos</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list lines="none">
+        <ion-item>
+          <ion-input labelPlacement="default" type="text" [readonly]="true" label="Nombre de usuario: " value=" {{username}}"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input labelPlacement="default" type="text" [readonly]="true" label="Lugar: " value=" {{infoevent.lugar}}"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+    <ion-button (click)="registrarAsistencia()" class="pr pl pb" color="tertiary" expand="block" fill="solid" shape="round" size="default">
+      Inscribirse
+    </ion-button>
+  </ion-card>
+</ion-content>
+

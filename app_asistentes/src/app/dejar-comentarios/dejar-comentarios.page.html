@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Comentar evento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ <ion-card>
+  <ion-card-header>
+    <ion-card-title>Nombre Evento</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item>
+      <ion-input [readonly]="true" nombre="username" labelPlacement="floating" type="text"  label="Username:" [(ngModel)]="username" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-textarea rows="5" nombre="Comentario" placeholder="Deje sus comentarios aqui..." [(ngModel)]="comentario" ></ion-textarea>
+    </ion-item>
+  </ion-card-content>
+  <ion-button  class="pl pr pb" color="success" expand="block" fill="solid" shape="round">
+    
+    Enviar
+  </ion-button>
+ </ion-card>
+</ion-content>

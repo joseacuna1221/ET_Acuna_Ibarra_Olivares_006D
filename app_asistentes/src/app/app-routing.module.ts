@@ -1,49 +1,58 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AutorizadoGuard } from './guards/pp.guard';
+import { AutorizadoGuard } from './guards/autorizados.guard';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'start',
-    pathMatch: 'full'
+    redirectTo: '/inicio',
+    pathMatch: 'full' 
   },
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-    path: 'start',
-    loadChildren: () => import('./start/start.module').then(m => m.StartPageModule)
+    path: 'inicio',
+    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
   },
   {
-    path: 'contactanos',
-    loadChildren: () => import('./contactanos/contactanos.module').then( m => m.ContactanosPageModule),
-    canActivate: [AutorizadoGuard]
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'inscrito',
-    loadChildren: () => import('./inscrito/inscrito.module').then( m => m.InscritoPageModule),
-    canActivate: [AutorizadoGuard]
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
   {
-    path: 'registro',
-    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+    path: 'fpassword',
+    loadChildren: () => import('./fpassword/fpassword.module').then( m => m.FpasswordPageModule)
   },
   {
-    path: 'editar-perfil',
-    loadChildren: () => import('./editar-perfil/editar-perfil.module').then( m => m.EditarPerfilPageModule),
-    canActivate: [AutorizadoGuard]
+    path: 'eventregister',
+    loadChildren: () => import('./eventregister/eventregister.module').then( m => m.EventregisterPageModule),
+    canActivate:[AutorizadoGuard]
   },
   {
-    path: 'detalle-evento/:id',
-    loadChildren: () => import('./detalle-evento/detalle-evento.module').then( m => m.DetalleEventoPageModule)
+    path: 'qr',
+    loadChildren: () => import('./qr/qr.module').then( m => m.QrPageModule),
+    canActivate:[AutorizadoGuard]
   },
   {
-    path: 'miseventos',
-    loadChildren: () => import('./miseventos/miseventos.module').then( m => m.MiseventosPageModule)
+    path: 'detalle-evento',
+    loadChildren: () => import('./detalle-evento/detalle-evento.module').then( m => m.DetalleEventoPageModule),
+    canActivate:[AutorizadoGuard]
+  },
+  {
+    path: 'comentarios',
+    loadChildren: () => import('./comentarios/comentarios.module').then( m => m.ComentariosPageModule),
+    canActivate:[AutorizadoGuard]
+  },
+  {
+    path: 'dejar-comentarios',
+    loadChildren: () => import('./dejar-comentarios/dejar-comentarios.module').then( m => m.DejarComentariosPageModule),
+    canActivate:[AutorizadoGuard]
   }
-
 ];
 @NgModule({
   imports: [

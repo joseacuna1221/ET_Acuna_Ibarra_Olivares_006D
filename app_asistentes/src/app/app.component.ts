@@ -1,12 +1,18 @@
+import { ToastController } from '@ionic/angular';
+import { AlertController,MenuController}  from '@ionic/angular';
 import { Component } from '@angular/core';
-import { UserauthService } from './services/userauth.service';
 import { Router } from '@angular/router';
+import { register } from 'swiper/element/bundle';
+
 
 interface Menu{
   icon:string;
+  redirecTo:string;
   name:string;
-  action?: () => void;
 }
+
+
+register();
 
 @Component({
   selector: 'app-root',
@@ -17,24 +23,51 @@ export class AppComponent {
 
   menu:Menu[]=[
     {
-      icon:'sparkles-outline',
-      name:'editar perfil',
-      action: () => this.router.navigate(['/editar-perfil']),
+      icon:'planet-outline',
+      redirecTo: '/tabs/tab2',
+      name: 'Proximos eventos'
     },
     {
-      icon:'person-circle-outline',
-      name:'mis eventos',
-      action: () => this.router.navigate(['/miseventos']),
+      icon:'calendar-number-outline',
+      redirecTo: '/tabs/tab3',
+      name: 'Mis eventos'
+    },
+    {
+      icon:'walk-outline',
+      redirecTo: '/tabs/tab1',
+      name: 'Mi perfil'
     },
     {
       icon:'paw-outline',
-      name:'cerrar sesion',
-      action: () => this.cerrarSesion(),
+      redirecTo: '/tabs/tab2',
+      name: 'Acerca de Duoc'
+    },
+    {
+      icon:'settings-outline',
+      redirecTo: '/tabs/tab2',
+      name: 'Configuracion'
     },
   ]
-  constructor(private router: Router, private authService: UserauthService) {}
 
-  cerrarSesion() {
-    this.authService.logout();
-    this.router.navigate(['/start']);}
-}
+  constructor(private router: Router,
+    private alertcontroller:AlertController,
+    private toast: ToastController,
+    private menuC:MenuController) {}
+
+    logOut(){
+      sessionStorage.removeItem('username');
+      sessionStorage.removeItem('password');
+      sessionStorage.removeItem('ingresado');
+      this.menuC.close();
+      this.router.navigateByUrl('/inicio')
+      this.showToast('Hasta pronto...');
+    }
+  
+    async showToast(msg: any){
+      const toast= await this.toast.create({
+        message:msg,
+        duration: 3000
+      })
+      toast.present();
+    }
+  }
