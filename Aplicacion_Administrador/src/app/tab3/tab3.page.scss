@@ -1,58 +1,42 @@
-.custom-card {
-  position: relative;
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+body {
+    background: transparent !important;
 }
 
-.card-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+:host{
+    background: transparent !important;
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  color: white;
-  padding: 10px;
-  box-sizing: border-box;
-  background: linear-gradient(to bottom right, transparent 49%, rgba(0,0,0,0.7) 51%);
+ion-content {
+    background: transparent !important;
 }
 
-.overlay-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end; /* Align content to the end of the overlay */
-}
-
-.left-image {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-bottom: 10px;
-}
-
-.contador {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.personas {
-  display: flex;
-  align-items: center;
-  margin-bottom: 5px;
-}
-
-.icon {
-  margin-right: 5px;
-}
+.scanner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Fondo oscuro translúcido */
+    z-index: 999; /* Asegura que esté encima de todo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .scanner-frame {
+    width: 250px;
+    height: 250px;
+    border: 4px solid #fff; /* Bordes blancos */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Brillo */
+    background: transparent; /* Transparente para mostrar la cámara */
+  }
+  
+  .scanner-text {
+    color: #fff;
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: center;
+  }
+  

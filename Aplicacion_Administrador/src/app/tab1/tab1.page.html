@@ -1,76 +1,118 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-back-button 
+    defaultHref="tabs/tab2"
+    text=""
+    color="dark"
+    slot="start">
+  </ion-back-button>
     <ion-title>
-      Inicio
+      Mi Perfil
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="no-padding-content">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-content>
+      <form [formGroup]="updateForm">
+       
+        <ion-item class="">
+          <img src="assets/avatar.avif" alt="" class="pt">
+        </ion-item>
+        <ion-list class="pb">
+          <ion-item>
+            <ion-input formControlName="username" nombre="username" labelPlacement="floating" type="text" label="Username" [(ngModel)]="usuario.username" ></ion-input>
+          </ion-item>
 
-  <ion-content style="height: 500px; margin-top: 600px;">
-    
-    <ion-slides pager="true" class="carousel" [options]="slideOpts">
-      <ion-slide>
-        <img src="assets/img/img1.jpg" alt="Slide 1">
-      </ion-slide>
-      <ion-slide>
-        <img src="assets/img/img2.jpg" alt="Slide 2">
-      </ion-slide>
-      <ion-slide>
-        <img src="assets/img/img3.jpg" alt="Slide 3">
-      </ion-slide>
-      <ion-slide>
-        <img src="assets/img/img4.jpg" alt="Slide 4">
-      </ion-slide>
-    </ion-slides>
-  </ion-content>
-  
-
-  <ion-grid>
-    <ion-row>
-      <ion-col size="6">
-        <ion-button expand="full" class="card-button" [routerLink]="['/tabs/tabc']">
-          <div class="button-content">
-            <ion-icon slot="start" name="add" class="tamanno-icon"></ion-icon>
-            <p>Crear</p>
+          <div id="alerta" *ngIf="updateForm.get('username')?.invalid && (updateForm.get('username')?.dirty || 
+                      updateForm.get('username')?.touched)">
+              <div id="alerta" *ngIf="updateForm.get('username')?.hasError('required')">
+                *Debe ingresar un nombre de usuario
+              </div>
+              <div id="alerta" *ngIf="updateForm.get('username')?.hasError('minlength')">
+                *El nombre de usuario debe tener al menos 6 caracteres
+              </div>
           </div>
-        </ion-button>
-      </ion-col>
 
-      <ion-col size="6">
-        <ion-button expand="full" class="card-button" [routerLink]="['/tabs/tab2']">
-          <div class="button-content">
-            <ion-icon slot="start" name="copy" class="tamanno-icon"></ion-icon>
-            <p>Mis eventos</p>
-          </div>
-        </ion-button>
-      </ion-col>
-    </ion-row>
+          <ion-item>
+            <ion-input formControlName="rut" nombre="rut" labelPlacement="floating" type="number"  label="Rut" [(ngModel)]="usuario.rut" ></ion-input>
+          </ion-item>
+          
+          
+            <div id="alerta" *ngIf="updateForm.get('rut')?.invalid && (updateForm.get('rut')?.dirty || 
+                        updateForm.get('rut')?.touched)">
+                <div id="alerta" *ngIf="updateForm.get('rut')?.hasError('required')">
+                  *Ingrese los primeros 8 digitos de su rut
+                </div>
+                <div id="alerta" *ngIf="updateForm.get('rut')?.hasError('pattern')">
+                  *Rut invalido
+                </div>
+            </div>
 
-    <ion-row>
-      <ion-col size="6">
-        <ion-button expand="full" class="card-button" [routerLink]="['/tabs/tab3']">
-          <div class="button-content">
-            <ion-icon slot="start" name="apps" class="tamanno-icon"></ion-icon>
-            <p>reg. eventos</p>
-          </div>
-        </ion-button>
-      </ion-col>
+          <ion-item>
+            <ion-input formControlName="email" nombre="email" labelPlacement="floating" type="email"  label="Email" [(ngModel)]="usuario.email" ></ion-input>
+          </ion-item>
 
-      <ion-col size="6">
-        <ion-button expand="full" class="card-button" [routerLink]="['/tabs/tab4']">
-          <div class="button-content">
-            <ion-icon slot="start" name="person" class="tamanno-icon"></ion-icon>
-            <p>perfil</p>
+            <div id="alerta" *ngIf="updateForm.get('email')?.invalid && (updateForm.get('email')?.dirty || 
+                      updateForm.get('email')?.touched)">
+              <div id="alerta" *ngIf="updateForm.get('email')?.hasError('required')">
+                *Debe ingresar un email
+              </div>
+              <div id="alerta" *ngIf="updateForm.get('email')?.hasError('email')">
+                *Porfavor ingrese un correo valido
+              </div>
+           </div>
+
+          <ion-item>
+            <ion-input nombre="pnombre" formControlName="pnombre" labelPlacement="floating" type="text"  label="Nombre" [(ngModel)]="usuario.pnombre" ></ion-input>
+          </ion-item>
+          
+          <div id="alerta" *ngIf="updateForm.get('pnombre')?.invalid && (updateForm.get('pnombre')?.dirty || 
+                    updateForm.get('pnombre')?.touched)">
+            <div id="alerta" *ngIf="updateForm.get('pnombre')?.hasError('required')">
+              *Porfavor ingrese su nombre
+            </div>
+            <div id="alerta" *ngIf="updateForm.get('pnombre')?.hasError('pattern')">
+              *Usted ha ingresado un caracter invalido
+            </div>
           </div>
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+
+          <ion-item>
+            <ion-input formControlName="apellido" nombre="apellido" labelPlacement="floating" type="text"  label="Apellido" [(ngModel)]="usuario.apellido" ></ion-input>
+          </ion-item>
+
+          <div id="alerta" *ngIf="updateForm.get('apellido')?.invalid && (updateForm.get('apellido')?.dirty || 
+                        updateForm.get('apellido')?.touched)">
+                <div id="alerta" *ngIf="updateForm.get('apellido')?.hasError('required')">
+                  *Porfavor ingrese su apellido
+                </div>
+                <div id="alerta" *ngIf="updateForm.get('apellido')?.hasError('pattern')">
+                  *Usted ha ingresado un caracter invalido
+                </div>
+            </div>
+
+          <ion-item>
+            <ion-input formControlName="carrera" nombre="carrera" labelPlacement="floating" type="text"  label="Carrera" [(ngModel)]="usuario.carrera" ></ion-input>
+          </ion-item>
+
+          <div id="alerta" *ngIf="updateForm.get('carrera')?.invalid && (updateForm.get('carrera')?.dirty || 
+                        updateForm.get('carrera')?.touched)">
+                
+                <div id="alerta" *ngIf="updateForm.get('carrera')?.hasError('pattern')">
+                  *Usted ha ingresado un caracter invalido
+                </div>
+            </div>
+
+        </ion-list>
+      </form>
+    </ion-card-content>
+    <div class="pb">
+      <ion-button (click)="updatUsuario()"  expand="block" fill="solid" shape="round" color="tertiary">
+        Editar
+      </ion-button>
+    </div>
+  </ion-card>
+
+
 </ion-content>

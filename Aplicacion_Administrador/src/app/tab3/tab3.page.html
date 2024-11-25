@@ -1,34 +1,52 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-back-button
+      defaultHref="tabs/tab2"
+      text=""
+      color="dark"
+      slot="start">
+    </ion-back-button>
     <ion-title>
-      Registro de eventos
+      Eventos creados
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <p class="pr pl">
+    Aquí podrás ver los eventos que has creado, validar asistencia de los asistentes, y editar o cancelar un evento.
+  </p>
 
-  <ion-card class="custom-card">
-    <ion-img src="https://via.placeholder.com/300" class="card-image"></ion-img>
-    
-    <div class="overlay">
-      <div class="overlay-content">
-        <div class="indicator">
-          <div class="indicator-item">
-            <ion-icon name="people" class="icon"></ion-icon>
-            <span>16/16</span>
-          </div>
-          <div class="indicator-item">
-            <ion-icon name="people" class="icon"></ion-icon>
-            <span>26/32</span>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div *ngIf="isScanning" class="scanner-overlay">
+    <!-- Marco del escáner -->
+    <div class="scanner-frame"></div>
+    <p class="scanner-text">Alinea el código QR dentro del marco</p>
+    <ion-button color="danger" expand="block" (click)="stopScanner()">Detener Escaneo</ion-button>
+  </div>
+
+  <ion-card *ngFor="let e of eventos" color="dark" class="pb">
+    <ion-card-header>
+      <img src="assets/robots.jpg" alt="">
+      <ion-card-subtitle>{{e.id}}</ion-card-subtitle>
+      <ion-card-title>{{e.nombre}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Anfitrión: {{e.anfitrion}}</p>
+      <p><b>Fecha del evento: {{e.fecha}}</b></p>
+      <p>Lugar: {{e.lugar}}</p>
+      <p>Descripción: {{e.descripcion}}</p>
+    </ion-card-content>
+    <ion-button expand="block" color="primary" (click)="scanearQR()">
+      Validar asistencia
+    </ion-button>
+    <ion-button (click)="listaAsistentes(e)" class="pr pl pb" color="success" expand="block" fill="solid" shape="round" size="default">
+      Lista de asistentes
+    </ion-button>
+    <ion-button color="secondary" (click)="comentarios(e)" class="pr pl pb" expand="block" fill="solid" shape="round" size="default">
+      Ver comentarios
+    </ion-button>
+    <ion-button (click)="editarEvento(e)" class="pr pl pb" color="tertiary" expand="block" fill="solid" shape="round" size="default">
+      Editar evento
+    </ion-button>
   </ion-card>
 </ion-content>
