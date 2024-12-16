@@ -52,6 +52,14 @@ const routes: Routes = [
     path: 'dejar-comentarios',
     loadChildren: () => import('./dejar-comentarios/dejar-comentarios.module').then( m => m.DejarComentariosPageModule),
     canActivate:[AutorizadoGuard]
+  },
+  {
+    path: 'forgot-password',
+    loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
+  },
+  {
+    path: 'reset-password',
+    loadChildren: () => import('./reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
   }
 ];
 @NgModule({

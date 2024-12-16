@@ -36,6 +36,15 @@ export class AuthService {
     return this.httpclient.put<Users>(`${environment.apiUrl}/usuarios/${usuario.id}`,usuario);
   }
 
+  recoverPassword(email: string): Observable<any> {
+    return this.httpclient.post(`${environment.apiUrl}/recover-password`, { email });
+  }
 
+  resetPassword(token: string, newPassword: string) {
+    return this.httpclient.post(`${environment.apiUrl}/reset-password`, {
+      token,
+      newPassword,
+    });
+  }
   
 }
