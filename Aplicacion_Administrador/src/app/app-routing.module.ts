@@ -25,10 +25,6 @@ const routes: Routes = [
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
   {
-    path: 'fpassword',
-    loadChildren: () => import('./fpassword/fpassword.module').then( m => m.FpasswordPageModule)
-  },
-  {
     path: 'editevent',
     loadChildren: () => import('./editevent/editevent.module').then( m => m.EditeventPageModule),
     canActivate: [AutorizadoGuard]
@@ -47,6 +43,14 @@ const routes: Routes = [
     path: 'comentarios',
     loadChildren: () => import('./comentarios/comentarios.module').then( m => m.ComentariosPageModule),
     canActivate:[AutorizadoGuard]
+  },
+  {
+    path: 'forgot-password',
+    loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
+  },
+  {
+    path: 'reset-password',
+    loadChildren: () => import('./reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
   }
  
 ];
